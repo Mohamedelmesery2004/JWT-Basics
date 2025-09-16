@@ -2,8 +2,8 @@ import express from 'express';
 const router = express.Router();
 
 import { dashboard , logIn } from '../controllers/main.js';
-
-router.route("/dashboard").get(dashboard)
+import authtoken from '../middleware/auth.js'
+router.route("/dashboard").get(authtoken,dashboard)
 router.route("/login").post(logIn)
 
 
